@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuk, Belajar Mengelola Emosi! — Infografis Interaktif</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Fredoka (Judul Ceria) & Nunito (Teks Ramah Anak) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'Nunito', 'sans-serif'],
+            sans: ['Nunito', 'sans-serif'],
+          },
+          boxShadow: {
+            comic: '0 6px 0 rgba(59, 43, 33, 0.24)',
+            comicSm: '0 4px 0 rgba(59, 43, 33, 0.22)',
+            comicHover: '0 10px 0 rgba(59, 43, 33, 0.26)',
+            modal: '0 24px 60px rgba(24, 32, 56, 0.38)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Latar belakang langit cerah & suasana ruang kelas hangat */
+    body {
+      font-family: 'Nunito', sans-serif;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(255, 251, 224, 0.95) 0%, transparent 40%),
+        radial-gradient(circle at 85% 14%, rgba(219, 244, 255, 0.92) 0%, transparent 44%),
+        linear-gradient(180deg, #cdeeff 0%, #e7f6ff 38%, #fbf5e4 74%, #f2e4c6 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #2c231e;
+    }
+
+    .font-display {
+      font-family: 'Fredoka', 'Nunito', sans-serif;
+    }
+
+    /* Tekstur papan kayu lembut untuk banner judul utama */
+    .wooden-sign {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(161, 98, 7, 0.08) 0px,
+          rgba(161, 98, 7, 0.08) 14px,
+          transparent 14px,
+          transparent 28px
+        ),
+        linear-gradient(180deg, #f7c96b 0%, #e8a43a 55%, #d68924 100%);
+    }
+
+    /* Outline biru-cokelat pada judul utama seperti pada poster */
+    .title-outline {
+      color: #1e3a8a;
+      text-shadow:
+        -2px -2px 0 #ffffff,
+         2px -2px 0 #ffffff,
+        -2px  2px 0 #ffffff,
+         2px  2px 0 #ffffff,
+         0px  4px 0 rgba(30, 58, 138, 0.22);
+    }
+
+    /* ================= ANIMASI KHUSUS BERDASARKAN GAMBAR ================= */
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes pointerBounce {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-4px, -5px) scale(1.08); }
+    }
+
+    @keyframes pulseQuestion {
+      0%, 100% { transform: scale(1) rotate(-4deg); }
+      50% { transform: scale(1.16) rotate(5deg); }
+    }
+
+    @keyframes breathWave {
+      0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.85; }
+      50% { transform: translateX(5px) scaleX(1.08); opacity: 1; }
+    }
+
+    @keyframes leafDrift {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(8deg); }
+    }
+
+    @keyframes bulbGlow {
+      0%, 100% { filter: drop-shadow(0 0 3px rgba(250, 204, 21, 0.55)); transform: scale(1); }
+      50% { filter: drop-shadow(0 0 11px rgba(250, 204, 21, 0.95)); transform: scale(1.09); }
+    }
+
+    @keyframes dotJump {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-4px); }
+    }
+
+    @keyframes cardEntrance {
+      0% { opacity: 0; transform: translateY(18px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes modalPopIn {
+      0% { opacity: 0; transform: scale(0.88) translateY(16px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .anim-float { animation: floatGentle 3.4s ease-in-out infinite; }
+    .anim-pointer { animation: pointerBounce 1.35s ease-in-out infinite; }
+    .anim-question { transform-origin: center; animation: pulseQuestion 2.1s ease-in-out infinite; }
+    .anim-breath { animation: breathWave 2.6s ease-in-out infinite; }
+    .anim-leaf { transform-origin: center; animation: leafDrift 3s ease-in-out infinite; }
+    .anim-leaf-delay { transform-origin: center; animation: leafDrift 3.3s ease-in-out 0.8s infinite; }
+    .anim-bulb { transform-origin: center; animation: bulbGlow 1.9s ease-in-out infinite; }
+    .anim-dot-1 { animation: dotJump 1.4s ease-in-out infinite; }
+    .anim-dot-2 { animation: dotJump 1.4s ease-in-out 0.2s infinite; }
+    .anim-dot-3 { animation: dotJump 1.4s ease-in-out 0.4s infinite; }
+    .anim-modal-in { animation: modalPopIn 0.26s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+    .card-stagger {
+      opacity: 0;
+      animation: cardEntrance 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Efek hover & aktif pada setiap area interaktif */
+    .hotspot-card {
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.2s ease;
+    }
+    .hotspot-card:hover {
+      transform: translateY(-7px) scale(1.02);
+    }
+    .hotspot-card:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-200 selection:text-amber-950">
+
+  <!-- Dekorasi Langit, Awan, & Kilauan Lembut di Latar Belakang -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
+    <div class="absolute top-6 left-8 w-44 h-16 bg-white/75 rounded-full blur-sm"></div>
+    <div class="absolute top-14 right-12 w-56 h-20 bg-white/70 rounded-full blur-sm"></div>
+    <div class="absolute top-1/3 left-4 text-amber-300/80 text-xl anim-float">✦</div>
+    <div class="absolute top-1/4 right-8 text-rose-300/80 text-lg anim-float">♥</div>
+  </div>
+
+  <!-- Wadah Utama Infografis -->
+  <main class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-7">
+    <div class="relative rounded-[2rem] bg-white/70 backdrop-blur-md border-4 border-white shadow-2xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+
+      <!-- Indikator Progres Eksplorasi Siswa -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-amber-200/70">
+        <div class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-sky-900 bg-sky-100/90 border border-sky-200 px-3 py-1 rounded-full">
+          <span>🎯 Infografis Interaktif BK / Pembelajaran Sosial Emosional</span>
+        </div>
+        <div id="progressBadge" class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-amber-950 bg-amber-100 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs">
+          <span>⭐ Dijelajahi: <span id="exploredCount">0</span> / 7 bagian</span>
+        </div>
+      </div>
+
+      <!-- ================= BAGIAN ATAS (HEADER SESUAI GAMBAR) ================= -->
+      <header class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-center mb-6 sm:mb-7">
+
+        <!-- Kiri Atas: Karakter Siswa Seragam Putih-Biru Mengacungkan Jempol -->
+        <div class="lg:col-span-3 flex flex-col items-center justify-center">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-gradient-to-b from-sky-100 via-white to-amber-50 border-3 border-amber-200 shadow-comicSm p-2 flex items-center justify-center anim-float">
+            <svg viewBox="0 0 190 190" class="w-full h-full" role="img" aria-label="Siswa berseragam sekolah mengacungkan jempol dengan semangat">
+              <!-- Garis kilau semangat kuning di kiri -->
+              <path d="M22 44 L38 53 M18 65 L36 65 M36 30 L45 45" stroke="#FACC15" stroke-width="5" stroke-linecap="round" />
+              <!-- Seragam sekolah putih -->
+              <path d="M44 176 C46 138, 64 122, 90 122 C116 122, 134 138, 136 176 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.5" />
+              <!-- Saku baju dengan logo sekolah -->
+              <rect x="104" y="142" width="18" height="20" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.8" />
+              <polygon points="113,145 119,149 117,158 109,158 107,149" fill="#F59E0B" />
+              <!-- Dasi biru sekolah -->
+              <polygon points="85,124 95,124 99,160 90,172 81,160" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" />
+              <!-- Kerah kemeja -->
+              <polygon points="70,122 86,138 79,124" fill="#F8FAFC" stroke="#3B2B21" stroke-width="2.5" />
+              <polygon points="110,122 94,138 101,124" fill="#F8FAFC" stroke="#3B2B21" stroke-width="2.5" />
+              <!-- Tangan kanan mengacungkan jempol -->
+              <g transform="translate(122, 98)">
+                <rect x="0" y="18" width="28" height="24" rx="9" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+                <path d="M8 18 L8 4 C8 -1, 17 -1, 17 5 L17 18" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" stroke-linecap="round" />
+              </g>
+              <!-- Leher -->
+              <rect x="81" y="104" width="18" height="22" rx="7" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3" />
+              <!-- Kepala -->
+              <ellipse cx="90" cy="74" rx="36" ry="38" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.5" />
+              <!-- Telinga -->
+              <ellipse cx="53" cy="76" rx="7" ry="10" fill="#F7C29B" stroke="#3B2B21" stroke-width="3" />
+              <ellipse cx="127" cy="76" rx="7" ry="10" fill="#F7C29B" stroke="#3B2B21" stroke-width="3" />
+              <!-- Rambut cokelat gelap -->
+              <path d="M53 70 C52 34, 78 26, 96 29 C115 26, 129 40, 127 70 C120 53, 108 46, 96 51 C88 43, 70 45, 53 70 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="3" stroke-linejoin="round" />
+              <!-- Alis & Mata ramah -->
+              <path d="M68 62 Q77 57 84 61" fill="none" stroke="#3B281E" stroke-width="3" stroke-linecap="round" />
+              <path d="M97 61 Q105 57 113 62" fill="none" stroke="#3B281E" stroke-width="3" stroke-linecap="round" />
+              <circle cx="77" cy="72" r="5.2" fill="#2C231E" />
+              <circle cx="78.8" cy="70.2" r="1.9" fill="#FFFFFF" />
+              <circle cx="105" cy="72" r="5.2" fill="#2C231E" />
+              <circle cx="106.8" cy="70.2" r="1.9" fill="#FFFFFF" />
+              <!-- Pipi merona & senyum ceria -->
+              <ellipse cx="66" cy="83" rx="6.5" ry="3.5" fill="#FB7185" opacity="0.55" />
+              <ellipse cx="114" cy="83" rx="6.5" ry="3.5" fill="#FB7185" opacity="0.55" />
+              <path d="M78 86 Q91 99 104 86 Z" fill="#FB7185" stroke="#3B2B21" stroke-width="2.8" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tengah Atas: Papan Kayu Judul Utama + Banner Kuning Petunjuk Klik -->
+        <div class="lg:col-span-5 flex flex-col items-center text-center">
+          <!-- Papan Kayu Judul -->
+          <div class="w-full rounded-3xl wooden-sign border-4 border-amber-800 shadow-comic px-4 py-3.5 sm:px-6 sm:py-4 relative">
+            <div class="rounded-2xl bg-amber-100/50 border-2 border-amber-700/30 px-3 py-2 sm:py-3">
+              <h1 class="font-display text-2xl sm:text-4xl lg:text-[2.3rem] font-bold tracking-tight title-outline leading-tight">
+                Yuk, Belajar<br />Mengelola Emosi!
+              </h1>
+            </div>
+          </div>
+
+          <!-- Pill Kuning Petunjuk Interaksi + Ikon Kursor Beranimasi -->
+          <div class="mt-3.5 relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-b from-yellow-300 via-amber-300 to-amber-400 border-3 border-amber-800 shadow-comicSm px-4 py-2 sm:px-5 sm:py-2.5 text-amber-950">
+            <span class="text-xs sm:text-sm md:text-[15px] font-extrabold leading-snug">
+              Klik salah satu gambar untuk mengetahui 5 cara mengelola emosi dengan baik!
+            </span>
+            <!-- Kursor putih bertepi hitam seperti gambar referensi -->
+            <svg viewBox="0 0 32 32" class="w-7 h-7 shrink-0 anim-pointer drop-shadow" aria-hidden="true">
+              <path d="M8 3 L8 24 L13.5 18.8 L17.5 27.5 L21 25.8 L17 17.2 L24.5 17.2 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.4" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Kanan Atas: Gelembung Ucapan Pengantar (Cream Bubble) -->
+        <div class="lg:col-span-4">
+          <div class="relative rounded-3xl bg-[#FFFDF4] border-3 border-amber-300 shadow-comicSm p-4 sm:p-5 text-sm sm:text-[15px] leading-relaxed text-stone-800">
+            <p class="font-semibold">
+              Setiap orang pasti pernah merasa marah, sedih, kecewa, atau kesal. Perasaan tersebut adalah hal yang wajar. Namun, kita perlu belajar mengelolanya agar tidak merugikan diri sendiri maupun orang lain.
+            </p>
+            <!-- Ikon hati kecil di pojok kanan bawah gelembung -->
+            <span class="absolute -bottom-3 right-5 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-rose-300 shadow-xs text-rose-500 text-sm" aria-hidden="true">
+              💗
+            </span>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- ================= 5 KARTU UTAMA INTERAKTIF (1 - 5) ================= -->
+      <section aria-label="Lima cara mengelola emosi dengan baik" class="mb-6 sm:mb-7">
+        <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-4">
+          <!-- Kartu 1 hingga 5 dirender melalui JavaScript -->
+        </div>
+      </section>
+
+      <!-- ================= BAGIAN BAWAH: TANAMAN & BUKU + INGAT! + 2 TEMAN + BANNER BIRU ================= -->
+      <section aria-label="Pengingat penting dan motivasi" class="space-y-4 sm:space-y-5">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+
+          <!-- Kiri Bawah: Dekorasi Pot Tanaman Hijau & Tumpukan Buku -->
+          <div class="hidden lg:flex lg:col-span-2 items-end justify-center">
+            <svg viewBox="0 0 140 130" class="w-32 h-32" role="img" aria-label="Ilustrasi pot tanaman dan tumpukan buku di sudut kelas">
+              <!-- Tumpukan buku -->
+              <rect x="64" y="106" width="66" height="12" rx="4" fill="#2563EB" stroke="#3B2B21" stroke-width="2.2" />
+              <rect x="68" y="95" width="58" height="11" rx="4" fill="#F97316" stroke="#3B2B21" stroke-width="2.2" />
+              <!-- Pot terakota -->
+              <polygon points="18,86 58,86 52,120 24,120" fill="#D97706" stroke="#3B2B21" stroke-width="2.5" stroke-linejoin="round" />
+              <rect x="14" y="80" width="48" height="8" rx="3" fill="#F59E0B" stroke="#3B2B21" stroke-width="2.2" />
+              <!-- Daun tanaman segar -->
+              <path d="M38 80 C24 62, 12 46, 22 34 C34 38, 40 58, 38 80 Z" fill="#22C55E" stroke="#14532D" stroke-width="2.2" class="anim-leaf" />
+              <path d="M38 80 C34 54, 38 28, 48 22 C56 32, 48 58, 38 80 Z" fill="#4ADE80" stroke="#14532D" stroke-width="2.2" />
+              <path d="M38 80 C48 60, 62 46, 68 54 C64 66, 50 74, 38 80 Z" fill="#16A34A" stroke="#14532D" stroke-width="2.2" class="anim-leaf-delay" />
+            </svg>
+          </div>
+
+          <!-- Tengah Bawah: Kartu Interaktif "INGAT!" -->
+          <div class="lg:col-span-7">
+            <button
+              type="button"
+              data-modal-key="ingat"
+              class="hotspot-card relative w-full text-left group rounded-3xl bg-[#FFFDF4] border-3 border-amber-400 hover:border-amber-600 shadow-comicSm hover:shadow-comic p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 focus:outline-none focus:ring-4 focus:ring-amber-300 cursor-pointer"
+              aria-label="Klik untuk membuka pop-up INGAT!"
+            >
+              <!-- Lencana "Sudah Dibaca" jika pernah diklik -->
+              <span
+                data-read-badge="ingat"
+                class="hidden absolute -top-2.5 right-4 rounded-full bg-emerald-500 text-white text-[11px] font-extrabold px-2.5 py-0.5 border-2 border-white shadow-xs"
+              >
+                Sudah Dibaca ✓
+              </span>
+
+              <!-- Badge Biru Miring "INGAT!" sesuai gambar referensi -->
+              <div class="shrink-0 rounded-2xl bg-gradient-to-b from-blue-600 to-blue-800 border-3 border-amber-300 shadow-comicSm px-4 py-2.5 text-white font-display font-bold text-xl sm:text-2xl tracking-wide -rotate-3 group-hover:rotate-0 transition-transform">
+                INGAT!
+              </div>
+
+              <!-- Teks INGAT! -->
+              <div class="flex-1">
+                <p class="text-sm sm:text-[15px] font-bold text-stone-800 leading-relaxed">
+                  Mengelola emosi bukan berarti harus memendam perasaan. Kita boleh merasakan berbagai emosi, tetapi perlu belajar mengungkapkan dan mengendalikannya dengan cara yang tepat.
+                </p>
+                <span class="mt-2 inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-900 bg-amber-200/80 px-3 py-1 rounded-full">
+                  <span>💡 Klik kotak ini untuk membuka catatan INGAT!</span>
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Kanan Bawah: Dua Siswa Berseragam Berbincang Ramah di Meja -->
+          <div class="lg:col-span-3 flex items-center justify-center">
+            <div class="w-full rounded-3xl bg-amber-50/90 border-2 border-amber-200 px-3 py-2 flex items-center justify-center shadow-xs">
+              <svg viewBox="0 0 220 112" class="w-full max-w-[230px] h-28" role="img" aria-label="Ilustrasi dua siswa tersenyum dan berbincang ramah di meja kelas">
+                <!-- Permukaan meja kayu -->
+                <rect x="8" y="88" width="204" height="14" rx="6" fill="#D97706" stroke="#3B2B21" stroke-width="2.5" />
+                <!-- Siswa kiri -->
+                <g class="anim-float">
+                  <path d="M46 88 C48 68, 86 68, 88 88 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="2.5" />
+                  <polygon points="64,71 70,71 71,86 67,88 63,86" fill="#2563EB" />
+                  <circle cx="67" cy="46" r="21" fill="#FCD3B5" stroke="#3B2B21" stroke-width="2.8" />
+                  <path d="M46 43 C47 21, 87 21, 88 43 C79 34, 55 34, 46 43 Z" fill="#3B281E" />
+                  <circle cx="61" cy="47" r="2.8" fill="#2C231E" />
+                  <circle cx="74" cy="47" r="2.8" fill="#2C231E" />
+                  <path d="M62 55 Q68 61 74 55" fill="none" stroke="#3B2B21" stroke-width="2.4" stroke-linecap="round" />
+                  <!-- Tangan mengepal semangat -->
+                  <circle cx="93" cy="72" r="7" fill="#FCD3B5" stroke="#3B2B21" stroke-width="2.4" />
+                </g>
+                <!-- Siswa kanan -->
+                <g class="anim-float" style="animation-delay: 0.6s;">
+                  <path d="M132 88 C134 68, 172 68, 174 88 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="2.5" />
+                  <polygon points="150,71 156,71 157,86 153,88 149,86" fill="#2563EB" />
+                  <circle cx="153" cy="46" r="21" fill="#FCD3B5" stroke="#3B2B21" stroke-width="2.8" />
+                  <path d="M132 43 C133 21, 173 21, 174 43 C165 34, 141 34, 132 43 Z" fill="#3B281E" />
+                  <circle cx="147" cy="47" r="2.8" fill="#2C231E" />
+                  <circle cx="160" cy="47" r="2.8" fill="#2C231E" />
+                  <path d="M148 55 Q154 61 160 55" fill="none" stroke="#3B2B21" stroke-width="2.4" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tombol Banner Biru Tua di Paling Bawah: "Kenali Emosimu, Kelola dengan Bijak!" -->
+        <div class="flex justify-center pt-1">
+          <button
+            type="button"
+            data-modal-key="penutup"
+            class="hotspot-card relative group w-full sm:w-auto max-w-2xl rounded-full bg-gradient-to-r from-[#173B7A] via-[#1E478F] to-[#173B7A] hover:from-[#1E4A96] hover:to-[#1E4A96] text-white border-4 border-amber-300 shadow-comic hover:shadow-comicHover px-6 sm:px-10 py-3.5 sm:py-4 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-sky-300 cursor-pointer"
+            aria-label="Klik untuk membuka pesan Kenali Emosimu, Kelola dengan Bijak!"
+          >
+            <span
+              data-read-badge="penutup"
+              class="hidden absolute -top-2.5 right-6 rounded-full bg-emerald-500 text-white text-[11px] font-extrabold px-2.5 py-0.5 border-2 border-white shadow-xs"
+            >
+              Sudah Dibaca ✓
+            </span>
+
+            <span class="text-xl sm:text-2xl">🌟</span>
+            <span class="font-display text-lg sm:text-2xl font-bold tracking-wide text-center">
+              Kenali Emosimu, Kelola dengan Bijak!
+            </span>
+            <span class="inline-flex items-center text-xs font-extrabold bg-amber-300 text-slate-900 px-2.5 py-1 rounded-full">
+              Klik
+            </span>
+          </button>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ================= MODAL POP-UP INTERAKTIF ================= -->
+  <div
+    id="emotionModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div
+      id="modalCard"
+      class="anim-modal-in relative w-full max-w-lg rounded-3xl bg-white border-4 border-amber-400 shadow-modal overflow-hidden"
+    >
+      <!-- Header Pop-up -->
+      <div id="modalHeader" class="px-5 sm:px-6 py-4 bg-gradient-to-r from-amber-200 to-yellow-100 border-b-2 border-black/10 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span id="modalBadge" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white text-slate-900 font-display font-bold text-sm border-2 border-slate-700 shadow-xs">
+            1
+          </span>
+          <h2 id="modalTitle" class="font-display text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+            Judul Pop-up
+          </h2>
+        </div>
+
+        <button
+          type="button"
+          id="closeModalCornerBtn"
+          class="w-10 h-10 rounded-full bg-white/90 hover:bg-rose-500 hover:text-white text-slate-700 border-2 border-slate-300 hover:border-rose-600 flex items-center justify-center font-bold text-lg transition-colors cursor-pointer focus:outline-none focus:ring-3 focus:ring-rose-300"
+          aria-label="Tutup pop-up"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Isi Pop-up: Ilustrasi Beranimasi + Penjelasan + Fitur Tambahan -->
+      <div class="p-5 sm:p-6 space-y-4">
+        <div
+          id="modalIllustrationWrap"
+          class="w-full h-44 sm:h-48 rounded-2xl bg-amber-50/70 border-2 border-slate-200/80 flex items-center justify-center p-3"
+        >
+          <!-- Ilustrasi SVG beranimasi -->
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-5">
+          <p id="modalText" class="text-base sm:text-[17px] text-slate-800 leading-relaxed font-semibold">
+            Penjelasan muncul di sini.
+          </p>
+        </div>
+
+        <!-- Alat Bantu Latihan Napas Interaktif (Muncul Khusus di Langkah 2: Tenangkan Diri) -->
+        <div id="breathingHelper" class="hidden rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-3.5 text-center">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="text-left">
+              <p class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Latihan Napas Tenang (4-4-4)</p>
+              <p id="breathingStatus" class="text-sm font-bold text-emerald-950">Klik tombol untuk mencoba tarik napas perlahan</p>
+            </div>
+            <button
+              type="button"
+              id="startBreathingBtn"
+              class="shrink-0 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-4 py-2 shadow-xs transition-colors cursor-pointer"
+            >
+              🌿 Mulai Napas
+            </button>
+          </div>
+        </div>
+
+        <!-- Tombol Tutup ✕ -->
+        <div class="flex justify-end pt-1">
+          <button
+            type="button"
+            id="closeModalPrimaryBtn"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 active:translate-y-0.5 text-white font-display font-bold text-base sm:text-lg px-6 py-3 shadow-comicSm border-2 border-rose-800 transition-all cursor-pointer focus:outline-none focus:ring-4 focus:ring-rose-300"
+          >
+            <span>Tutup ✕</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT INTERAKSI & ANIMASI ================= -->
+  <script>
+    /**
+     * Ilustrasi SVG beranimasi yang dibuat menyerupai pose karakter pada gambar referensi:
+     * 1. Kenali Emosi: Tangan di dagu, tanda tanya "?" berdenyut, garis gelombang biru.
+     * 2. Tenangkan Diri: Mata terpejam damai, hembusan napas awan putih-biru, daun hijau melayang.
+     * 3. Pahami Penyebabnya: Menatap ke atas berpikir, gelembung pikiran dengan "?" berdenyut.
+     * 4. Pilih Respons yang Tepat: Menunjuk ke atas, bohlam kuning menyala berkilau.
+     * 5. Ungkapkan Perasaan dengan Baik: Tersenyum terbuka, gelembung ucapan dengan 3 titik melompat.
+     */
+    const ILLUSTRATIONS = {
+      1: `
+        <svg viewBox="0 0 220 155" class="w-full h-full max-w-[240px]" role="img" aria-label="Ilustrasi 1: Kenali Emosi">
+          <circle cx="108" cy="78" r="56" fill="#FFE4EC" />
+          <!-- Tanda tanya cokelat-merah beranimasi -->
+          <text x="150" y="54" font-family="Fredoka, sans-serif" font-size="40" font-weight="700" fill="#9F1239" class="anim-question">?</text>
+          <!-- Garis emosi beranimasi di kanan mulut -->
+          <g class="anim-breath">
+            <path d="M148 82 L172 76" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M150 92 L176 92" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M148 102 L172 108" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" />
+          </g>
+          <!-- Seragam sekolah -->
+          <path d="M64 148 C66 118, 82 106, 106 106 C130 106, 146 118, 148 148 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.2" />
+          <polygon points="102,108 110,108 113,136 106,145 99,136" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.2" />
+          <!-- Kepala -->
+          <ellipse cx="106" cy="70" rx="31" ry="33" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+          <path d="M75 66 C74 36, 96 28, 112 31 C128 28, 139 41, 137 66 C131 52, 120 46, 110 50 C102 43, 88 45, 75 66 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="2.8" />
+          <!-- Alis & mata berpikir -->
+          <path d="M87 60 L98 63" stroke="#3B281E" stroke-width="3" stroke-linecap="round" />
+          <path d="M115 63 L126 59" stroke="#3B281E" stroke-width="3" stroke-linecap="round" />
+          <circle cx="94" cy="69" r="4.3" fill="#2C231E" />
+          <circle cx="120" cy="69" r="4.3" fill="#2C231E" />
+          <path d="M100 84 Q107 81 114 85" fill="none" stroke="#3B2B21" stroke-width="2.8" stroke-linecap="round" />
+          <!-- Tangan menopang dagu -->
+          <circle cx="112" cy="98" r="10.5" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3" />
+        </svg>
+      `,
+
+      2: `
+        <svg viewBox="0 0 220 155" class="w-full h-full max-w-[240px]" role="img" aria-label="Ilustrasi 2: Tenangkan Diri">
+          <circle cx="106" cy="78" r="56" fill="#DCFCE7" />
+          <!-- Dedaunan hijau melayang lembut -->
+          <path d="M40 52 C54 46, 64 56, 60 68 C46 70, 38 62, 40 52 Z" fill="#22C55E" stroke="#14532D" stroke-width="2.2" class="anim-leaf" />
+          <path d="M46 102 C60 100, 66 112, 58 122 C46 120, 42 110, 46 102 Z" fill="#4ADE80" stroke="#14532D" stroke-width="2.2" class="anim-leaf-delay" />
+          <path d="M158 38 C170 40, 174 52, 164 60 C154 56, 152 46, 158 38 Z" fill="#22C55E" stroke="#14532D" stroke-width="2.2" class="anim-leaf" />
+          <!-- Awan hembusan napas lembut -->
+          <g class="anim-breath">
+            <path d="M136 78 C148 72, 168 70, 182 78 C190 83, 184 94, 172 92 C160 90, 146 86, 136 82 Z" fill="#E0F2FE" stroke="#38BDF8" stroke-width="2.5" />
+          </g>
+          <!-- Seragam -->
+          <path d="M62 148 C64 118, 80 106, 104 106 C128 106, 144 118, 146 148 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.2" />
+          <polygon points="100,108 108,108 111,136 104,145 97,136" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.2" />
+          <!-- Kepala tenang -->
+          <ellipse cx="104" cy="70" rx="31" ry="33" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+          <path d="M73 66 C72 36, 94 28, 110 31 C126 28, 137 41, 135 66 C129 52, 118 46, 108 50 C100 43, 86 45, 73 66 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="2.8" />
+          <!-- Mata terpejam damai -->
+          <path d="M87 69 Q93 74 99 69" fill="none" stroke="#2C231E" stroke-width="3" stroke-linecap="round" />
+          <path d="M111 69 Q117 74 123 69" fill="none" stroke="#2C231E" stroke-width="3" stroke-linecap="round" />
+          <!-- Mulut meniup perlahan -->
+          <ellipse cx="123" cy="81" rx="5.5" ry="4" fill="#FDA4AF" stroke="#3B2B21" stroke-width="2.5" />
+        </svg>
+      `,
+
+      3: `
+        <svg viewBox="0 0 220 155" class="w-full h-full max-w-[240px]" role="img" aria-label="Ilustrasi 3: Pahami Penyebabnya">
+          <circle cx="100" cy="82" r="54" fill="#E0F2FE" />
+          <!-- Gelembung pikiran & "?" berdenyut -->
+          <circle cx="134" cy="64" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.4" />
+          <circle cx="146" cy="52" r="7.5" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.4" />
+          <g class="anim-question">
+            <ellipse cx="174" cy="36" rx="28" ry="23" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.8" />
+            <text x="166" y="45" font-family="Fredoka, sans-serif" font-size="27" font-weight="700" fill="#1E3A8A">?</text>
+          </g>
+          <!-- Seragam -->
+          <path d="M56 148 C58 118, 74 106, 98 106 C122 106, 138 118, 140 148 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.2" />
+          <polygon points="94,108 102,108 105,136 98,145 91,136" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.2" />
+          <!-- Kepala -->
+          <ellipse cx="98" cy="70" rx="30" ry="32" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+          <path d="M68 66 C67 36, 89 28, 105 31 C121 28, 132 41, 130 66 C124 52, 113 46, 103 50 C95 43, 81 45, 68 66 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="2.8" />
+          <!-- Mata menatap ke arah gelembung pikiran -->
+          <circle cx="88" cy="67" r="4.2" fill="#2C231E" />
+          <circle cx="113" cy="67" r="4.2" fill="#2C231E" />
+          <path d="M92 84 Q99 81 106 84" fill="none" stroke="#3B2B21" stroke-width="2.8" stroke-linecap="round" />
+          <circle cx="105" cy="98" r="9.5" fill="#FCD3B5" stroke="#3B2B21" stroke-width="2.8" />
+        </svg>
+      `,
+
+      4: `
+        <svg viewBox="0 0 220 155" class="w-full h-full max-w-[240px]" role="img" aria-label="Ilustrasi 4: Pilih Respons yang Tepat">
+          <circle cx="106" cy="80" r="56" fill="#F3E8FF" />
+          <!-- Bohlam ide menyala beranimasi -->
+          <g class="anim-bulb">
+            <path d="M150 24 C137 24, 129 34, 129 45 C129 53, 134 58, 138 64 L162 64 C166 58, 171 53, 171 45 C171 34, 163 24, 150 24 Z" fill="#FDE047" stroke="#854D0E" stroke-width="2.8" />
+            <rect x="141" y="64" width="18" height="8" rx="3" fill="#CBD5E1" stroke="#3B2B21" stroke-width="2.2" />
+            <path d="M150 10 L150 18 M122 26 L128 31 M178 26 L172 31 M118 45 L125 45 M175 45 L182 45" stroke="#EAB308" stroke-width="3" stroke-linecap="round" />
+          </g>
+          <!-- Seragam -->
+          <path d="M58 148 C60 118, 76 106, 100 106 C124 106, 140 118, 142 148 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.2" />
+          <polygon points="96,108 104,108 107,136 100,145 93,136" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.2" />
+          <!-- Kepala -->
+          <ellipse cx="100" cy="70" rx="30" ry="32" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+          <path d="M70 66 C69 36, 91 28, 107 31 C123 28, 134 41, 132 66 C126 52, 115 46, 105 50 C97 43, 83 45, 70 66 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="2.8" />
+          <circle cx="88" cy="70" r="4.2" fill="#2C231E" />
+          <circle cx="114" cy="70" r="4.2" fill="#2C231E" />
+          <path d="M91 83 Q101 92 111 83" fill="none" stroke="#3B2B21" stroke-width="3" stroke-linecap="round" />
+          <!-- Jari telunjuk menunjuk ke atas -->
+          <path d="M132 120 L132 82 C132 77, 141 77, 141 83 L141 120" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      `,
+
+      5: `
+        <svg viewBox="0 0 220 155" class="w-full h-full max-w-[240px]" role="img" aria-label="Ilustrasi 5: Ungkapkan Perasaan dengan Baik">
+          <circle cx="102" cy="80" r="55" fill="#FFEDD5" />
+          <!-- Gelembung ucapan dengan 3 titik melompat -->
+          <path d="M136 22 H190 C196 22, 200 26, 200 32 V56 C200 62, 196 66, 190 66 H154 L138 78 L142 66 H136 C130 66, 126 62, 126 56 V32 C126 26, 130 22, 136 22 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.8" stroke-linejoin="round" />
+          <circle cx="149" cy="44" r="4" fill="#1E293B" class="anim-dot-1" />
+          <circle cx="163" cy="44" r="4" fill="#1E293B" class="anim-dot-2" />
+          <circle cx="177" cy="44" r="4" fill="#1E293B" class="anim-dot-3" />
+          <!-- Seragam -->
+          <path d="M56 148 C58 118, 74 106, 98 106 C122 106, 138 118, 140 148 Z" fill="#FFFFFF" stroke="#3B2B21" stroke-width="3.2" />
+          <polygon points="94,108 102,108 105,136 98,145 91,136" fill="#1D4ED8" stroke="#1E293B" stroke-width="2.2" />
+          <!-- Tangan terbuka ramah -->
+          <path d="M134 114 L154 96 C158 92, 164 97, 160 102 L144 122" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3" stroke-linecap="round" />
+          <!-- Kepala -->
+          <ellipse cx="98" cy="70" rx="30" ry="32" fill="#FCD3B5" stroke="#3B2B21" stroke-width="3.2" />
+          <path d="M68 66 C67 36, 89 28, 105 31 C121 28, 132 41, 130 66 C124 52, 113 46, 103 50 C95 43, 81 45, 68 66 Z" fill="#3B281E" stroke="#3B2B21" stroke-width="2.8" />
+          <circle cx="86" cy="69" r="4.2" fill="#2C231E" />
+          <circle cx="112" cy="69" r="4.2" fill="#2C231E" />
+          <path d="M88 81 Q99 93 110 81 Z" fill="#FB7185" stroke="#3B2B21" stroke-width="2.5" stroke-linejoin="round" />
+        </svg>
+      `,
+
+      ingat: `
+        <svg viewBox="0 0 220 145" class="w-full h-full max-w-[230px]" role="img" aria-label="Ilustrasi INGAT!">
+          <circle cx="110" cy="72" r="55" fill="#FEF3C7" />
+          <g class="anim-bulb">
+            <path d="M110 20 C91 20, 78 34, 78 51 C78 63, 86 71, 92 79 H128 C134 71, 142 63, 142 51 C142 34, 129 20, 110 20 Z" fill="#FDE047" stroke="#92400E" stroke-width="3" />
+          </g>
+          <path d="M110 59 C110 59, 96 49, 96 40 C96 35, 101 32, 105 35 C107.5 37, 110 40, 110 40 C110 40, 112.5 37, 115 35 C119 32, 124 35, 124 40 C124 49, 110 59, 110 59 Z" fill="#F43F5E" />
+          <rect x="96" y="79" width="28" height="10" rx="4" fill="#94A3B8" stroke="#3B2B21" stroke-width="2.5" />
+          <rect x="101" y="89" width="18" height="7" rx="3" fill="#64748B" stroke="#3B2B21" stroke-width="2.2" />
+          <text x="50" y="45" font-size="22">✨</text>
+          <text x="152" y="45" font-size="22">💛</text>
+        </svg>
+      `,
+
+      penutup: `
+        <svg viewBox="0 0 220 145" class="w-full h-full max-w-[230px]" role="img" aria-label="Ilustrasi Kenali Emosimu, Kelola dengan Bijak!">
+          <circle cx="110" cy="72" r="55" fill="#DBEAFE" />
+          <g class="anim-float">
+            <polygon points="110,18 123,46 154,50 131,71 137,102 110,86 83,102 89,71 66,50 97,46" fill="#FACC15" stroke="#854D0E" stroke-width="3" stroke-linejoin="round" />
+            <circle cx="101" cy="62" r="3.5" fill="#2C231E" />
+            <circle cx="119" cy="62" r="3.5" fill="#2C231E" />
+            <path d="M102 70 Q110 77 118 70" fill="none" stroke="#2C231E" stroke-width="2.8" stroke-linecap="round" />
+          </g>
+          <text x="42" y="40" font-size="22">🌱</text>
+          <text x="156" y="106" font-size="22">🌈</text>
+        </svg>
+      `,
+    };
+
+    /**
+     * Data lengkap 7 elemen interaktif (Kartu 1–5, INGAT!, dan Kenali Emosimu, Kelola dengan Bijak!).
+     */
+    const INFOGRAPHIC_ITEMS = [
+      {
+        key: '1',
+        numberLabel: '1',
+        title: '1. 😊 Kenali Emosi',
+        cardLabel: 'Kenali\nEmosi',
+        text: 'Langkah pertama adalah mengenali perasaan yang sedang kita alami. Apakah kita sedang marah, sedih, kecewa, atau takut? Dengan mengenali emosi, kita dapat memahami apa yang sedang dirasakan.',
+        cardBg: 'from-[#FFE4EC] via-[#FFF0F4] to-[#FFD6E2]',
+        cardBorder: 'border-[#F47292] hover:border-[#E11D48]',
+        badgeBg: 'bg-[#F47292] text-white border-[#9F1239]',
+        pillBg: 'from-[#F47292] to-[#E15578] border-[#9F1239] text-white',
+        modalHeader: 'from-rose-200 via-pink-100 to-rose-100',
+        modalAccent: 'border-[#F47292]',
+      },
+      {
+        key: '2',
+        numberLabel: '2',
+        title: '2. 🌿 Tenangkan Diri',
+        cardLabel: 'Tenangkan\nDiri',
+        text: 'Saat emosi muncul, jangan terburu-buru bertindak. Berhentilah sejenak, tarik napas dalam-dalam, lalu embuskan secara perlahan. Berikan waktu untuk dirimu agar lebih tenang.',
+        cardBg: 'from-[#E2F6E4] via-[#F0FBF1] to-[#D1F0D4]',
+        cardBorder: 'border-[#5BAE63] hover:border-[#16A34A]',
+        badgeBg: 'bg-[#5BAE63] text-white border-[#14532D]',
+        pillBg: 'from-[#5BAE63] to-[#43964B] border-[#14532D] text-white',
+        modalHeader: 'from-emerald-200 via-green-100 to-lime-100',
+        modalAccent: 'border-[#5BAE63]',
+      },
+      {
+        key: '3',
+        numberLabel: '3',
+        title: '3. 💭 Pahami Penyebabnya',
+        cardLabel: 'Pahami\nPenyebabnya',
+        text: 'Cobalah mencari tahu apa yang membuatmu merasa demikian. Pahami situasi yang terjadi dan lihatlah dari berbagai sudut pandang sebelum mengambil kesimpulan.',
+        cardBg: 'from-[#DFEEFF] via-[#EFF6FF] to-[#CFE4FF]',
+        cardBorder: 'border-[#5599E6] hover:border-[#2563EB]',
+        badgeBg: 'bg-[#5599E6] text-white border-[#1E3A8A]',
+        pillBg: 'from-[#5599E6] to-[#3B7FD1] border-[#1E3A8A] text-white',
+        modalHeader: 'from-sky-200 via-blue-100 to-cyan-100',
+        modalAccent: 'border-[#5599E6]',
+      },
+      {
+        key: '4',
+        numberLabel: '4',
+        title: '4. 🧠 Pilih Respons yang Tepat',
+        cardLabel: 'Pilih Respons\nyang Tepat',
+        text: 'Setelah lebih tenang, pikirkan tindakan yang akan kamu lakukan. Hindari berteriak atau menyakiti orang lain. Pilihlah respons yang positif dan bijaksana.',
+        cardBg: 'from-[#EFE6FF] via-[#F6F1FF] to-[#E2D4FF]',
+        cardBorder: 'border-[#8E6CE6] hover:border-[#7C3AED]',
+        badgeBg: 'bg-[#8E6CE6] text-white border-[#4C1D95]',
+        pillBg: 'from-[#8E6CE6] to-[#7451CF] border-[#4C1D95] text-white',
+        modalHeader: 'from-purple-200 via-violet-100 to-indigo-100',
+        modalAccent: 'border-[#8E6CE6]',
+      },
+      {
+        key: '5',
+        numberLabel: '5',
+        title: '5. 💬 Ungkapkan Perasaan dengan Baik',
+        cardLabel: 'Ungkapkan\nPerasaan dengan\nBaik',
+        text: 'Sampaikan perasaanmu secara jujur, sopan, dan tidak menyalahkan orang lain. Gunakan kata-kata yang baik agar masalah dapat diselesaikan tanpa menyakiti perasaan siapa pun.',
+        cardBg: 'from-[#FFEDD8] via-[#FFF6EB] to-[#FFE0BD]',
+        cardBorder: 'border-[#F08A38] hover:border-[#EA580C]',
+        badgeBg: 'bg-[#F08A38] text-white border-[#7C2D12]',
+        pillBg: 'from-[#F08A38] to-[#D97220] border-[#7C2D12] text-white',
+        modalHeader: 'from-amber-200 via-orange-100 to-yellow-100',
+        modalAccent: 'border-[#F08A38]',
+      },
+      {
+        key: 'ingat',
+        numberLabel: '!',
+        title: '💡 INGAT!',
+        cardLabel: 'INGAT!',
+        text: 'Mengelola emosi bukan berarti memendam perasaan. Kita boleh merasakan berbagai emosi, tetapi perlu belajar mengungkapkan dan mengendalikannya dengan tepat.',
+        modalHeader: 'from-amber-200 via-yellow-100 to-orange-100',
+        modalAccent: 'border-amber-500',
+      },
+      {
+        key: 'penutup',
+        numberLabel: '★',
+        title: '🌟 Kenali Emosimu, Kelola dengan Bijak!',
+        cardLabel: 'Kenali Emosimu, Kelola dengan Bijak!',
+        text: 'Yuk, mulai belajar mengelola emosi dari diri sendiri. Kamu pasti bisa!',
+        modalHeader: 'from-sky-200 via-blue-100 to-indigo-200',
+        modalAccent: 'border-blue-600',
+      },
+    ];
+
+    const itemMap = INFOGRAPHIC_ITEMS.reduce((acc, item) => {
+      acc[item.key] = item;
+      return acc;
+    }, {});
+
+    // Pelacak bagian yang sudah dibuka siswa
+    const exploredSet = new Set();
+
+    // Referensi DOM
+    const modalEl = document.getElementById('emotionModal');
+    const modalCardEl = document.getElementById('modalCard');
+    const modalHeaderEl = document.getElementById('modalHeader');
+    const modalBadgeEl = document.getElementById('modalBadge');
+    const modalTitleEl = document.getElementById('modalTitle');
+    const modalIllustrationWrapEl = document.getElementById('modalIllustrationWrap');
+    const modalTextEl = document.getElementById('modalText');
+    const closeModalCornerBtn = document.getElementById('closeModalCornerBtn');
+    const closeModalPrimaryBtn = document.getElementById('closeModalPrimaryBtn');
+    const breathingHelper = document.getElementById('breathingHelper');
+    const breathingStatus = document.getElementById('breathingStatus');
+    const startBreathingBtn = document.getElementById('startBreathingBtn');
+    const exploredCountEl = document.getElementById('exploredCount');
+
+    let lastFocusedElement = null;
+    let breathingTimer = null;
+
+    /**
+     * Merender 5 kartu langkah utama (1 sampai 5) dengan animasi bertahap.
+     */
+    function renderEmotionCards() {
+      const grid = document.getElementById('cardsGrid');
+      if (!grid) return;
+
+      const stepItems = INFOGRAPHIC_ITEMS.filter((item) => ['1', '2', '3', '4', '5'].includes(item.key));
+
+      grid.innerHTML = stepItems
+        .map((item, idx) => {
+          const formattedLabel = item.cardLabel
+            .split('\n')
+            .map((line) => `<span class="block">${line}</span>`)
+            .join('');
+
+          return `
+            <button
+              type="button"
+              data-modal-key="${item.key}"
+              style="animation-delay: ${idx * 85}ms"
+              class="card-stagger hotspot-card relative pt-5 pb-3.5 px-3 rounded-[1.75rem] bg-gradient-to-b ${item.cardBg} border-3 ${item.cardBorder} shadow-comicSm hover:shadow-comic flex flex-col items-center justify-between text-center focus:outline-none focus:ring-4 focus:ring-amber-300 cursor-pointer"
+              aria-label="Klik gambar ${item.key}: ${item.title}"
+            >
+              <!-- Lingkaran nomor 1-5 di atas kartu -->
+              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full ${item.badgeBg} border-2 font-display font-bold text-base flex items-center justify-center shadow-xs">
+                ${item.numberLabel}
+              </span>
+
+              <!-- Lencana Sudah Dibaca ✓ -->
+              <span
+                data-read-badge="${item.key}"
+                class="hidden absolute top-2 right-2 rounded-full bg-emerald-500 text-white text-[10px] font-extrabold px-2 py-0.5 border border-white shadow-2xs"
+              >
+                Sudah Dibaca ✓
+              </span>
+
+              <!-- Bingkai Ilustrasi Kartun Beranimasi -->
+              <div class="w-full h-36 sm:h-40 rounded-2xl bg-white/85 border-2 border-white shadow-inner flex items-center justify-center p-1.5 my-1 overflow-hidden">
+                ${ILLUSTRATIONS[item.key] || ''}
+              </div>
+
+              <!-- Label Pil Berwarna di Bawah Kartu -->
+              <div class="mt-2.5 w-full rounded-2xl bg-gradient-to-b ${item.pillBg} border-2 shadow-comicSm px-2.5 py-2 font-display font-bold text-base sm:text-[17px] leading-tight">
+                ${formattedLabel}
+              </div>
+            </button>
+          `;
+        })
+        .join('');
+    }
+
+    /**
+     * Menandai bagian tertentu sebagai "Sudah Dibaca ✓" dan memperbarui penghitung progres.
+     */
+    function markAsExplored(key) {
+      if (!key || exploredSet.has(key)) return;
+      exploredSet.add(key);
+
+      if (exploredCountEl) {
+        exploredCountEl.textContent = String(exploredSet.size);
+      }
+
+      const badge = document.querySelector(`[data-read-badge="${key}"]`);
+      if (badge) {
+        badge.classList.remove('hidden');
+      }
+    }
+
+    /**
+     * Menghentikan siklus latihan napas 4-4-4 jika modal ditutup.
+     */
+    function stopBreathingCycle() {
+      if (breathingTimer) {
+        clearInterval(breathingTimer);
+        breathingTimer = null;
+      }
+      if (breathingStatus) {
+        breathingStatus.textContent = 'Klik tombol untuk mencoba tarik napas perlahan';
+      }
+      if (startBreathingBtn) {
+        startBreathingBtn.textContent = '🌿 Mulai Napas';
+      }
+    }
+
+    /**
+     * Memulai panduan napas 4-4-4 interaktif pada pop-up langkah ke-2 ("Tenangkan Diri").
+     */
+    function toggleBreathingCycle() {
+      if (breathingTimer) {
+        stopBreathingCycle();
+        return;
+      }
+
+      const phases = [
+        '🌬️ Tarik napas dalam-dalam lewat hidung... (4 detik)',
+        '⏸️ Tahan napas sejenak dengan tenang... (4 detik)',
+        '🍃 Embuskan napas perlahan lewat mulut... (4 detik)',
+      ];
+      let phaseIdx = 0;
+
+      startBreathingBtn.textContent = '⏹️ Hentikan';
+      breathingStatus.textContent = phases[phaseIdx];
+
+      breathingTimer = setInterval(() => {
+        phaseIdx = (phaseIdx + 1) % phases.length;
+        breathingStatus.textContent = phases[phaseIdx];
+      }, 4000);
+    }
+
+    /**
+     * Membuka pop-up berdasarkan `key`.
+     */
+    function openModal(key) {
+      try {
+        const item = itemMap[key];
+        if (!item || !modalEl) return;
+
+        lastFocusedElement = document.activeElement;
+        stopBreathingCycle();
+
+        modalHeaderEl.className = `px-5 sm:px-6 py-4 bg-gradient-to-r ${item.modalHeader} border-b-2 border-black/10 flex items-center justify-between gap-3`;
+        modalCardEl.className = `anim-modal-in relative w-full max-w-lg rounded-3xl bg-white border-4 ${item.modalAccent} shadow-modal overflow-hidden`;
+
+        modalBadgeEl.textContent = item.numberLabel;
+        modalTitleEl.textContent = item.title;
+        modalIllustrationWrapEl.innerHTML = ILLUSTRATIONS[item.key] || '';
+        modalTextEl.textContent = item.text;
+
+        // Tampilkan alat latihan napas hanya pada langkah 2 ("Tenangkan Diri")
+        if (key === '2') {
+          breathingHelper.classList.remove('hidden');
+        } else {
+          breathingHelper.classList.add('hidden');
+        }
+
+        modalEl.classList.remove('hidden');
+        modalEl.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+
+        markAsExplored(key);
+
+        setTimeout(() => {
+          closeModalPrimaryBtn?.focus();
+        }, 30);
+      } catch (err) {
+        console.error('Gagal membuka pop-up:', err);
+      }
+    }
+
+    /**
+     * Menutup pop-up dan mengembalikan fokus ke elemen sebelumnya.
+     */
+    function closeModal() {
+      try {
+        if (!modalEl) return;
+        stopBreathingCycle();
+        modalEl.classList.add('hidden');
+        modalEl.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+          lastFocusedElement = null;
+        }
+      } catch (err) {
+        console.error('Gagal menutup pop-up:', err);
+      }
+    }
+
+    /**
+     * Memasang seluruh event listener interaktif.
+     */
+    function bindEvents() {
+      document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-modal-key]');
+        if (trigger) {
+          const key = trigger.getAttribute('data-modal-key');
+          openModal(key);
+        }
+      });
+
+      startBreathingBtn?.addEventListener('click', toggleBreathingCycle);
+      closeModalCornerBtn?.addEventListener('click', closeModal);
+      closeModalPrimaryBtn?.addEventListener('click', closeModal);
+
+      modalEl?.addEventListener('click', (event) => {
+        if (event.target === modalEl) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modalEl && !modalEl.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderEmotionCards();
+      bindEvents();
+    });
+  </script>
+</body>
+</html>
